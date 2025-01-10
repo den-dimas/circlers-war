@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqg5owb3b3h0c"]
+
+[ext_resource type="Script" path="res://scripts/people/people.gd" id="1_cvmhp"]
+[ext_resource type="Texture2D" uid="uid://can2imf28clu" path="res://assets/entity/circle.png" id="2_orx8v"]
+[ext_resource type="PackedScene" uid="uid://conkebs2xmjf7" path="res://scenes/weapon/weapon.tscn" id="3_xw6rk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kpkq1"]
+radius = 19.0
+height = 38.0
+
+[node name="People" type="Area2D"]
+z_index = 1
+script = ExtResource("1_cvmhp")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_orx8v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_kpkq1")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="Weapon" parent="." instance=ExtResource("3_xw6rk")]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
