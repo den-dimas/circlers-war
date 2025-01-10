@@ -18,10 +18,9 @@ func _ready():
 	if bullet_blueprint == null: printerr("Bullet Blueprint is NULL!")
 	
 	bullet_pool = ObjectPool.new(max_bullet_count, bullet_blueprint, bullet_spawn_point)
-	bullet_speed = randf_range(bullet_speed, bullet_speed * 2)
 
 func _process(_delta):
-	if get_parent() is not People || !get_parent().is_in_team:
+	if get_parent() is not People || !get_parent().in_group:
 		return
 
 	if can_shoot:
