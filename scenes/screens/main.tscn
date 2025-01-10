@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bjho48whwga8r" path="res://assets/environment/background.png" id="1_y0ki1"]
 [ext_resource type="Script" path="res://scripts/controller/touch_input.gd" id="2_eg4xf"]
 [ext_resource type="Script" path="res://scripts/controller/controller.gd" id="3_teqcq"]
-[ext_resource type="PackedScene" uid="uid://dqg5owb3b3h0c" path="res://scenes/entity/people.tscn" id="4_68dqd"]
+[ext_resource type="Script" path="res://scripts/people/people_spawner.gd" id="5_lf8hh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_owvxo"]
 size = Vector2(566, 237)
@@ -37,10 +37,9 @@ debug_color = Color(0.606376, 0.378176, 0.973281, 0.42)
 position = Vector2(294, 825)
 script = ExtResource("3_teqcq")
 move_smoothness = 5.0
-starting_column = 5
-
-[node name="People" parent="Controller" instance=ExtResource("4_68dqd")]
-is_in_team = true
+first_row_many_column = 3
+max_column = 5
+add_column_per_row = 2
 
 [node name="BulletSpawnPoint" type="Node2D" parent="."]
 
@@ -49,63 +48,10 @@ position = Vector2(275, -71)
 
 [node name="PeopleSpawner" type="Node2D" parent="."]
 position = Vector2(0, -48)
+script = ExtResource("5_lf8hh")
 
 [node name="Timer" type="Timer" parent="PeopleSpawner"]
 wait_time = 2.0
 autostart = true
-
-[node name="People" parent="PeopleSpawner" instance=ExtResource("4_68dqd")]
-position = Vector2(181, 273)
-
-[node name="People2" parent="PeopleSpawner" instance=ExtResource("4_68dqd")]
-position = Vector2(200, 273)
-
-[node name="People3" parent="PeopleSpawner" instance=ExtResource("4_68dqd")]
-position = Vector2(219, 273)
-
-[node name="People4" parent="PeopleSpawner" instance=ExtResource("4_68dqd")]
-position = Vector2(219, 254)
-
-[node name="People5" parent="PeopleSpawner" instance=ExtResource("4_68dqd")]
-position = Vector2(200, 254)
-
-[node name="People6" parent="PeopleSpawner" instance=ExtResource("4_68dqd")]
-position = Vector2(181, 254)
-
-[node name="People7" parent="PeopleSpawner" instance=ExtResource("4_68dqd")]
-position = Vector2(408, 95)
-
-[node name="People8" parent="PeopleSpawner" instance=ExtResource("4_68dqd")]
-position = Vector2(427, 95)
-
-[node name="People9" parent="PeopleSpawner" instance=ExtResource("4_68dqd")]
-position = Vector2(446, 95)
-
-[node name="People10" parent="PeopleSpawner" instance=ExtResource("4_68dqd")]
-position = Vector2(446, 76)
-
-[node name="People11" parent="PeopleSpawner" instance=ExtResource("4_68dqd")]
-position = Vector2(427, 76)
-
-[node name="People12" parent="PeopleSpawner" instance=ExtResource("4_68dqd")]
-position = Vector2(408, 76)
-
-[node name="People13" parent="PeopleSpawner" instance=ExtResource("4_68dqd")]
-position = Vector2(127, -93)
-
-[node name="People14" parent="PeopleSpawner" instance=ExtResource("4_68dqd")]
-position = Vector2(146, -93)
-
-[node name="People15" parent="PeopleSpawner" instance=ExtResource("4_68dqd")]
-position = Vector2(165, -93)
-
-[node name="People16" parent="PeopleSpawner" instance=ExtResource("4_68dqd")]
-position = Vector2(165, -112)
-
-[node name="People17" parent="PeopleSpawner" instance=ExtResource("4_68dqd")]
-position = Vector2(146, -112)
-
-[node name="People18" parent="PeopleSpawner" instance=ExtResource("4_68dqd")]
-position = Vector2(127, -112)
 
 [connection signal="timeout" from="PeopleSpawner/Timer" to="PeopleSpawner" method="_on_timer_timeout"]
