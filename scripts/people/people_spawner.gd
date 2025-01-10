@@ -3,7 +3,12 @@ extends Node2D
 @onready var spawn_timer = $"Timer"
 @onready var people_preset: PackedScene = load("res://scenes/entity/people.tscn")
 
+var people_pool: ObjectPool
+
 var can_spawn := false
+
+func _ready():
+	people_pool = ObjectPool.new(100, people_preset, self)
 
 func _process(_delta):
 	if (can_spawn):
