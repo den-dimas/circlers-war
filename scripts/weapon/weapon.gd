@@ -35,3 +35,11 @@ func _process(_delta):
 
 func _on_timer_timeout() -> void:
 	can_shoot = true
+
+func random_bullet_speed(limit_1: float, limit_2: float):
+	if limit_1 > limit_2:
+		bullet_speed = randf_range(limit_2, limit_1)
+		return
+	else:
+		bullet_speed = randf_range(limit_1, limit_2)
+		return
