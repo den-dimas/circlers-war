@@ -7,7 +7,7 @@ extends Node2D
 
 @export var bullet_blueprint: PackedScene = null
 @export var max_bullet_count := 100
-@export var bullet_speed := 100.0
+@export var bullet_speed := 1000.0
 
 var bullet_pool: ObjectPool
 
