@@ -15,10 +15,16 @@ var move_column_step := 0.0
 var move_row_step := 0.0
 
 var is_increase := 1
+var is_adding_member := false
 
 var table: Array[NodeGroupMember]
 
 func add_member(member: NodeGroupMember):
+	if (is_adding_member): return
+
+	change_add_member(true)
+	call_deferred("change_add_member", false)
+
 	member.row = current_row
 	member.column = current_column
 	member.in_group = true
@@ -29,8 +35,6 @@ func add_member(member: NodeGroupMember):
 	reposition()
 	adjust_group_index()
 
-# Has bugs in adjusting column and rows after a new member is added in new row
-# Suspect is because there is an overlapping between member in the same group
 func adjust_group_index():
 	current_column += 1
 
@@ -57,3 +61,6 @@ func reposition():
 
 		entry.can_reposition = true
 	pass
+
+func change_add_member(status: bool):
+	is_adding_member = status

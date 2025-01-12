@@ -15,7 +15,7 @@ metadata/_edit_horizontal_guides_ = [1019.0]
 [node name="World" type="Node2D" parent="."]
 
 [node name="Background" type="Sprite2D" parent="World"]
-modulate = Color(0.860369, 0.860369, 0.860369, 1)
+modulate = Color(0.0885601, 0.0885598, 0.0885598, 1)
 position = Vector2(288, 512)
 texture = ExtResource("1_y0ki1")
 

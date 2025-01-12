@@ -18,6 +18,7 @@ func _process(_delta):
 
 		p.position.x = randf_range(48, get_viewport().content_scale_size.x - 48)
 		p.move_speed = randf_range(100, 300)
+		p.get_node("Weapon").random_bullet_speed(1000.0, 1500.0)
 
 		can_spawn = false
 

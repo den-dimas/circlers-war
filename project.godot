@@ -22,9 +22,9 @@ window/size/viewport_height=1024
 window/size/resizable=false
 window/size/always_on_top=true
 window/size/transparent=true
-window/stretch/mode="viewport"
-window/stretch/aspect="expand"
-window/stretch/scale_mode="integer"
+window/size/window_width_override=432
+window/size/window_height_override=768
+window/stretch/mode="canvas_items"
 window/handheld/orientation=1
 
 [dotnet]
