@@ -20,7 +20,7 @@ func _ready():
 	bullet_pool = ObjectPool.new(max_bullet_count, bullet_blueprint, bullet_spawn_point)
 
 func _process(_delta):
-	if get_parent() is not People || !get_parent().in_group:
+	if get_parent() is not People || !get_parent().in_group || get_parent().get_parent() is not Controller:
 		return
 
 	if can_shoot:

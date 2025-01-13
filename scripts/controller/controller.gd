@@ -20,10 +20,10 @@ func _ready():
 
 	var player: People = people_scene.instantiate()
 
+	player.position = Vector2.ZERO
+
 	add_child(player)
 	add_member(player)
-
-	player.position = Vector2.ZERO
 
 func _process(delta):
 	if new_position != null && position.distance_to(new_position) > 0.0:

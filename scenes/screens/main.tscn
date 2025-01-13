@@ -48,11 +48,11 @@ add_column_per_row = 2
 position = Vector2(275, -71)
 
 [node name="PeopleSpawner" type="Node2D" parent="."]
-position = Vector2(0, -48)
+position = Vector2(0, 283)
 script = ExtResource("5_lf8hh")
 
 [node name="Timer" type="Timer" parent="PeopleSpawner"]
-wait_time = 2.0
+wait_time = 5.0
 autostart = true
 
 [connection signal="timeout" from="PeopleSpawner/Timer" to="PeopleSpawner" method="_on_timer_timeout"]

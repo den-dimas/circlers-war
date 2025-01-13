@@ -25,4 +25,3 @@ shape = SubResource("CapsuleShape2D_kpkq1")
 [node name="Weapon" parent="." instance=ExtResource("3_xw6rk")]
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
-[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]

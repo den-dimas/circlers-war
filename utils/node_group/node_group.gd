@@ -25,6 +25,7 @@ func add_member(member: NodeGroupMember):
 	change_add_member(true)
 	call_deferred("change_add_member", false)
 
+	member.position = Vector2.ZERO
 	member.row = current_row
 	member.column = current_column
 	member.in_group = true
