@@ -1,7 +1,14 @@
 extends Node2D
 
-@onready var spawn_timer = $"Timer"
-@onready var people_preset: PackedScene = load("res://scenes/entity/people.tscn")
+@onready
+var spawn_timer = $"Timer"
+@onready
+var people_preset: PackedScene = load("res://scenes/entity/people.tscn")
+
+@export
+var slowest_bullet_speed: float = 1000.0
+@export
+var fastest_bullet_speed: float = 1600.0
 
 var people_pool: ObjectPool
 
@@ -18,7 +25,7 @@ func _process(_delta):
 
 		p.position.x = randf_range(48, get_viewport().content_scale_size.x - 48)
 		p.move_speed = randf_range(100, 300)
-		p.get_node("Weapon").random_bullet_speed(1000.0, 1500.0)
+		p.get_node("Weapon").random_bullet_speed(slowest_bullet_speed, fastest_bullet_speed)
 
 		can_spawn = false
 
